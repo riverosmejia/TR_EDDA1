@@ -45,8 +45,8 @@
         for row in rows:
             print(row)
 
-except Exception as e:
-    print(f"Error: {e}")
+    except Exception as e:
+        print(f"Error: {e}")
 
 finally:
     # Cerrar la conexión
