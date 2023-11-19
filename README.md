@@ -59,32 +59,32 @@
             # En caso de que haya un error antes de definir 'connection'
             pass
 
-    <--NOTA: PARA QUE FUNCIONE HAY QUE ACTIVAR EL ENTORNO VIRTUAL-->
+<--NOTA: PARA QUE FUNCIONE HAY QUE ACTIVAR EL ENTORNO VIRTUAL-->
 
-        para activar un entorno virtual, puedes proporcionar comandos simples para los usuarios. Aquí tienes un ejemplo para Linux, Windows y macOS:
+    para activar un entorno virtual, puedes proporcionar comandos simples para los usuarios. Aquí tienes un ejemplo para Linux, Windows y macOS:
 
-            Para Linux y macOS:
-            bash
-            Copy code
-            # Crear un entorno virtual
-            python3 -m venv nombre_del_entorno
+        Para Linux y macOS:
+        bash
+        Copy code
+        # Crear un entorno virtual
+        python3 -m venv nombre_del_entorno
 
-            # Activar el entorno virtual
-            source nombre_del_entorno/bin/activate
+        # Activar el entorno virtual
+        source nombre_del_entorno/bin/activate
 
-            # Desactivar el entorno virtual
-            deactivate
-            Para Windows:
-            bash
-            Copy code
-            # Crear un entorno virtual
-            python -m venv nombre_del_entorno
+        # Desactivar el entorno virtual
+        deactivate
+        Para Windows:
+        bash
+        Copy code
+        # Crear un entorno virtual
+        python -m venv nombre_del_entorno
 
-            # Activar el entorno virtual
-            nombre_del_entorno\Scripts\activate
+        # Activar el entorno virtual
+        nombre_del_entorno\Scripts\activate
 
-            # Desactivar el entorno virtual
-            deactivate
+        # Desactivar el entorno virtual
+        deactivate
 
 
 # Paso 4: Utilizar pgloader para Cargar Datos en ElephantSQL:
