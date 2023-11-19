@@ -28,7 +28,7 @@ macOS:
     db_params = {
         "host": "bubble.db.elephantsql.com",
         "user": "fpaowvnx",
-        "password": "nS0nUBYZf8hWYIwYlnNDxa7Io1kLhUlv",  # Usa tu clave API en lugar de la contraseña
+        "password": "tu_contraseña",  # Usa tu clave API en lugar de la contraseña
         "port": 5432,
         "database": "fpaowvnx",
     }
