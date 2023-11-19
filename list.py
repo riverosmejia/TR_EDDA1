@@ -4,7 +4,7 @@ import psycopg2
 db_params = {
     "host": "bubble.db.elephantsql.com",
     "user": "fpaowvnx",
-    "password": "nS0nUBYZf8hWYIwYlnNDxa7Io1kLhUlv",  # Usa tu clave API en lugar de la contraseña
+    "password": "nS0nUBYZf8hWYIwYlnNDxa7Io1kLhUlv",
     "port": 5432,
     "database": "fpaowvnx",
 }
@@ -19,7 +19,7 @@ try:
 
     # Mostrar resultados
     for row in rows:
-        print(row)
+        print(f'\n{row}\n')
 
 except Exception as e:
     print(f"Error: {e}")
