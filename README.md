@@ -2,11 +2,11 @@
 
 <--Guía completa que incluye todos los pasos desde la instalación de las dependencias hasta la carga de datos en ElephantSQL, para los sistemas operativos Linux, Windows y macOS-->
 
-#Paso 1: Instalar psycopg2:
+# Paso 1: Instalar psycopg2:
 
     pip install psycopg2-binary
 
-#Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
+# Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
     
     Linux:
         
@@ -21,29 +21,29 @@
         brew install pgloader
     
     
-#Paso 3: Conexión y Manipulación de la Base de Datos desde Python:
+# Paso 3: Conexión y Manipulación de la Base de Datos desde Python:
 
     import psycopg2
 
-db_params = {
-    "host": "bubble.db.elephantsql.com",
-    "user": "fpaowvnx",
-    "password": "nS0nUBYZf8hWYIwYlnNDxa7Io1kLhUlv",  # Usa tu clave API en lugar de la contraseña
-    "port": 5432,
-    "database": "fpaowvnx",
-}
+    db_params = {
+        "host": "bubble.db.elephantsql.com",
+        "user": "fpaowvnx",
+        "password": "nS0nUBYZf8hWYIwYlnNDxa7Io1kLhUlv",  # Usa tu clave API en lugar de la contraseña
+        "port": 5432,
+        "database": "fpaowvnx",
+    }
 
-try:
-    connection = psycopg2.connect(**db_params)
-    cursor = connection.cursor()
+    try:
+        connection = psycopg2.connect(**db_params)
+        cursor = connection.cursor()
 
-    # Ejemplo: Obtener todas las filas de la tabla
-    cursor.execute("SELECT * FROM tablaproyecto")
-    rows = cursor.fetchall()
+        # Ejemplo: Obtener todas las filas de la tabla
+        cursor.execute("SELECT * FROM tablaproyecto")
+        rows = cursor.fetchall()
 
-    # Mostrar resultados
-    for row in rows:
-        print(row)
+        # Mostrar resultados
+        for row in rows:
+            print(row)
 
 except Exception as e:
     print(f"Error: {e}")
@@ -87,14 +87,14 @@ finally:
             deactivate
 
 
-#Paso 4: Utilizar pgloader para Cargar Datos en ElephantSQL:
+# Paso 4: Utilizar pgloader para Cargar Datos en ElephantSQL:
 
-pgloader mysql://usuario:contraseña@localhost/baseproyecto \
+    pgloader mysql://usuario:contraseña@localhost/baseproyecto \
 
          postgresql://tu_usuario:tu_contraseña@bubble.db.elephantsql.com:5432/tu_base_de_datos \
          -S nombre_del_archivo.sql
 
-#Paso 5: Verificación en ElephantSQL:
+# Paso 5: Verificación en ElephantSQL:
 
 Accede a tu cuenta en ElephantSQL y verifica que la base de datos y los datos se hayan cargado correctamente.
 
