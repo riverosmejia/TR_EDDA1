@@ -1,12 +1,12 @@
-# TR_EDDA1
+
 
 <--Guía completa que incluye todos los pasos desde la instalación de las dependencias hasta la carga de datos en ElephantSQL, para los sistemas operativos Linux, Windows y macOS-->
 
-Paso 1: Instalar psycopg2:
+#Paso 1: Instalar psycopg2:
 
     pip install psycopg2-binary
 
-Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
+#Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
     
     Linux:
         
@@ -21,11 +21,10 @@ Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
         brew install pgloader
     
     
-Paso 3: Conexión y Manipulación de la Base de Datos desde Python:
+#Paso 3: Conexión y Manipulación de la Base de Datos desde Python:
 
     import psycopg2
 
-# Parámetros de conexión a la base de datos
 db_params = {
     "host": "bubble.db.elephantsql.com",
     "user": "fpaowvnx",
@@ -88,14 +87,14 @@ finally:
             deactivate
 
 
-Paso 4: Utilizar pgloader para Cargar Datos en ElephantSQL:
+#Paso 4: Utilizar pgloader para Cargar Datos en ElephantSQL:
 
 pgloader mysql://usuario:contraseña@localhost/baseproyecto \
 
          postgresql://tu_usuario:tu_contraseña@bubble.db.elephantsql.com:5432/tu_base_de_datos \
          -S nombre_del_archivo.sql
 
-Paso 5: Verificación en ElephantSQL:
+#Paso 5: Verificación en ElephantSQL:
 
 Accede a tu cuenta en ElephantSQL y verifica que la base de datos y los datos se hayan cargado correctamente.
 
