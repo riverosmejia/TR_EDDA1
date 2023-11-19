@@ -59,7 +59,7 @@ macOS:
             # En caso de que haya un error antes de definir 'connection'
             pass
 
-<--NOTA: PARA QUE FUNCIONE HAY QUE ACTIVAR EL ENTORNO VIRTUAL-->
+<--NOTA: SI USTED NO HA PODIDO CUMPLIR EL PASO 1 CUMPLIR CON LO SIGUIENTE PARA QUE LE FUNCIONE EL PROYECTO-->
 
     para activar un entorno virtual, puedes proporcionar comandos simples para los usuarios. Aquí tienes un ejemplo para Linux, Windows y macOS:
 
