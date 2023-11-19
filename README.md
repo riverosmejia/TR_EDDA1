@@ -48,16 +48,16 @@
     except Exception as e:
         print(f"Error: {e}")
 
-finally:
-    # Cerrar la conexión
-    try:
-        if connection:
-            cursor.close()
-            connection.close()
-            print("Conexión cerrada.")
-    except NameError:
-        # En caso de que haya un error antes de definir 'connection'
-        pass
+    finally:
+        # Cerrar la conexión
+        try:
+            if connection:
+                cursor.close()
+                connection.close()
+                print("Conexión cerrada.")
+        except NameError:
+            # En caso de que haya un error antes de definir 'connection'
+            pass
 
     <--NOTA: PARA QUE FUNCIONE HAY QUE ACTIVAR EL ENTORNO VIRTUAL-->
 
