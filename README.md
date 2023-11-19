@@ -8,17 +8,17 @@
 
 # Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
     
-    Linux:
-        
-        sudo apt-get install pgloader
+Linux:
     
-    Windows:
-        
-        Descarga el instalador desde la página de descargas de pgloader y sigue las instrucciones.
+    sudo apt-get install pgloader
 
-    macOS:
+Windows:
+    
+    Descarga el instalador desde la página de descargas de pgloader y sigue las instrucciones.
 
-        brew install pgloader
+macOS:
+
+    brew install pgloader
     
     
 # Paso 3: Conexión y Manipulación de la Base de Datos desde Python:
