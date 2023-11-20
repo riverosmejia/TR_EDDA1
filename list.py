@@ -29,6 +29,8 @@ if __name__ == "__main__":
         # Mostrar resultados
         for row in rows:
 
+            print(row[2])
+
             if not grafo.encontrar_persona(row[0]):
 
                 rogue=persona(row[0],row[1])                
@@ -41,7 +43,7 @@ if __name__ == "__main__":
 
                 grafo.agregar_nodo(rogue1)
 
-            grafo.agregar_arista(row[0],row[3])
+            grafo.agregar_arista(row[0],row[3],row[2])
 
         for choncho in grafo.personas:
  

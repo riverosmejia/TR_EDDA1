@@ -11,9 +11,9 @@ class GrafoDirigido:
     def agregar_nodo(self, nodo):
         self.personas[nodo] = nodo
 
-    def agregar_arista(self, nodo_inicio, nodo_destino):
+    def agregar_arista(self, nodo_inicio, nodo_destino,mensaje):
 
-        arista_nueva = relacion(nodo_inicio, nodo_destino, 1)
+        arista_nueva = relacion(nodo_inicio, nodo_destino,1,mensaje)
         arista_existente = self.buscar_arista(nodo_destino, nodo_inicio)
 
         if arista_existente is None:
@@ -21,6 +21,9 @@ class GrafoDirigido:
         else:
             # Si ya existe una arista en la dirección opuesta, actualiza su peso
             arista_existente.peso = arista_existente.peso + 1
+            print(mensaje)
+            arista_existente.mensaje.append(str(mensaje))
+
 
     def mostrar_grafo(self):
         for arista in self.relaciones:
