@@ -21,7 +21,6 @@ class GrafoDirigido:
         else:
             # Si ya existe una arista en la dirección opuesta, actualiza su peso
             arista_existente.peso = arista_existente.peso + 1
-            print(mensaje)
             arista_existente.mensaje.append(str(mensaje))
 
 

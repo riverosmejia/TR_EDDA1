@@ -26,10 +26,14 @@ if __name__ == "__main__":
         cursor.execute("SELECT * FROM tablaproyecto")
         rows = cursor.fetchall()
 
+        cont=0
+
         # Mostrar resultados
         for row in rows:
 
-            print(row[2])
+            print(cont)
+
+            cont=cont+1
 
             if not grafo.encontrar_persona(row[0]):
 
@@ -44,10 +48,6 @@ if __name__ == "__main__":
                 grafo.agregar_nodo(rogue1)
 
             grafo.agregar_arista(row[0],row[3],row[2])
-
-        for choncho in grafo.personas:
- 
-          print(choncho)
 
         for cacatua in grafo.relaciones:
 
