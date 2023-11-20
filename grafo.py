@@ -9,7 +9,7 @@ class GrafoDirigido:
         self.relaciones = []   
 
     def agregar_nodo(self, nodo):
-        self.personas[nodo.telefono] = nodo
+        self.personas[nodo] = nodo
 
     def agregar_arista(self, nodo_inicio, nodo_destino, peso):
         if nodo_inicio.telefono in self.personas and nodo_destino.telefono in self.personas:
@@ -41,19 +41,14 @@ class GrafoDirigido:
             if arista.nodo_inicio.telefono == inicio_id and arista.nodo_destino.telefono == destino_id:
                 return arista
 
-# Ejemplo de uso
-if __name__ == "__main__":
+    def encontrar_persona(self,persona):
 
-    grafo = GrafoDirigido()
+        for per in self.personas:
 
-    persona1=persona('miguel',1038)
-    persona2=persona('joseph',1039)
-    persona3=persona('victor',1040)
+            if per == persona:
 
-    grafo.agregar_nodo(persona1)
-    grafo.agregar_nodo(persona2)
-    grafo.agregar_nodo(persona3)
+                return True
 
-
+        return False
 
 
