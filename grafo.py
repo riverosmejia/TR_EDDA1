@@ -11,10 +11,16 @@ class GrafoDirigido:
     def agregar_nodo(self, nodo):
         self.personas[nodo] = nodo
 
-    def agregar_arista(self, nodo_inicio, nodo_destino, peso):
-        if nodo_inicio.telefono in self.personas and nodo_destino.telefono in self.personas:
-            arista = persona(nodo_inicio, nodo_destino, peso)
-            self.relaciones.append(arista)
+    def agregar_arista(self, nodo_inicio, nodo_destino):
+
+        arista_nueva = relacion(nodo_inicio, nodo_destino, 1)
+        arista_existente = self.buscar_arista(nodo_destino, nodo_inicio)
+
+        if arista_existente is None:
+            self.relaciones.append(arista_nueva)
+        else:
+            # Si ya existe una arista en la dirección opuesta, actualiza su peso
+            arista_existente.peso = arista_existente.peso + 1
 
     def mostrar_grafo(self):
         for arista in self.relaciones:
@@ -36,11 +42,6 @@ class GrafoDirigido:
             if arista.nodo_inicio == inicio and arista.nodo_destino not in camino_actual:
                 self.encontrar_camino(arista.nodo_destino.id, destino_id, camino_actual[:])
 
-    def buscar_arista(self, inicio_id, destino_id):
-        for arista in self.relaciones:
-            if arista.nodo_inicio.telefono == inicio_id and arista.nodo_destino.telefono == destino_id:
-                return arista
-
     def encontrar_persona(self,persona):
 
         for per in self.personas:
@@ -50,5 +51,11 @@ class GrafoDirigido:
                 return True
 
         return False
+
+    def buscar_arista(self, inicio, destino):
+        for arista in self.relaciones:
+            if arista.nodo_inicio == inicio and arista.nodo_destino == destino:
+                return arista
+        return None
 
 

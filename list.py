@@ -6,7 +6,6 @@ from persona import persona
 
 from mensaje import relacion
 
-# Parámetros de conexión a la base de datos
 db_params = {
     "host": "bubble.db.elephantsql.com",
     "user": "fpaowvnx",
@@ -15,8 +14,6 @@ db_params = {
     "database": "fpaowvnx",
 }
 
-
-# Ejemplo de uso
 if __name__ == "__main__":
 
     grafo = GrafoDirigido()
@@ -44,9 +41,15 @@ if __name__ == "__main__":
 
                 grafo.agregar_nodo(rogue1)
 
-        for choncho in grafo.personas:
+            grafo.agregar_arista(row[0],row[3])
 
+        for choncho in grafo.personas:
+ 
           print(choncho)
+
+        for cacatua in grafo.relaciones:
+
+            print(cacatua)
 
     except Exception as e:
         print(f"Error: {e}")
