@@ -47,11 +47,11 @@ if __name__ == "__main__":
 
                 grafo.agregar_nodo(rogue1)
 
-            grafo.agregar_arista(row[0],row[3],row[2])
+            grafo.agregar_arista(row[0],row[3],row[2],row[5])
 
         for cacatua in grafo.relaciones:
 
-            print(cacatua)
+            cacatua.obtener_info()
 
     except Exception as e:
         print(f"Error: {e}")
