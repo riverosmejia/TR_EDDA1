@@ -8,11 +8,12 @@ Este repositorio contiene un proyecto que te permite acceder a datos desde una b
    git clone https://github.com/tu-usuario/tu-proyecto.git
    cd tu-proyecto
 
-Crea un entorno virtual (asegúrate de tener virtualenv instalado):
+2.Crea un entorno virtual (asegúrate de tener virtualenv instalado):
 
+    ```bash
     virtualenv venv
 
-Activa el entorno virtual:
+3.Activa el entorno virtual:
 
 En Windows:
 
