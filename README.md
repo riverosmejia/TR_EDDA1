@@ -5,6 +5,7 @@ Este repositorio contiene un proyecto que te permite acceder a datos desde una b
 # 1.Clona este repositorio en tu máquina local:
 
    git clone https://github.com/tu-usuario/tu-proyecto.git
+   
    cd tu-proyecto
 
 # 2.Crea un entorno virtual (asegúrate de tener virtualenv instalado):
