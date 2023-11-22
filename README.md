@@ -2,18 +2,16 @@ Este repositorio contiene un proyecto que te permite acceder a datos desde una b
 
 ## Instalación y Configuración del Entorno Virtual
 
-1. Clona este repositorio en tu máquina local:
+# 1.Clona este repositorio en tu máquina local:
 
-   ```bash
    git clone https://github.com/tu-usuario/tu-proyecto.git
    cd tu-proyecto
 
-2.Crea un entorno virtual (asegúrate de tener virtualenv instalado):
+# 2.Crea un entorno virtual (asegúrate de tener virtualenv instalado):
 
-    ```bash
     virtualenv venv
 
-3.Activa el entorno virtual:
+# 3.Activa el entorno virtual:
 
 En Windows:
 
@@ -23,18 +21,18 @@ En Linux/Mac:
 
     source venv/bin/activate
 
-Instala las dependencias del proyecto:
+# 4.Instala las dependencias del proyecto:
 
     pip install -r requirements.txt
 
-#Nota: 
+# Nota: 
 Si encuentras problemas al intentar instalar las librerías, asegúrate de que el entorno virtual esté activado.
 
-#Descargar Librerías:
+# Descargar Librerías:
 Para descargar las librerías necesarias, ejecuta el siguiente comando:
 
     pip install psycopg2 platform
-#Nota: 
+# Nota: 
 Si encuentras problemas al descargar las librerías, asegúrate de que el entorno virtual esté activado.
 
 Configuración de la Base de Datos
@@ -57,7 +55,7 @@ Ejecuta el script extract_data.py para extraer datos de la base de datos:
 
 Esto iniciará el proceso de extracción y mostrará los datos obtenidos.
 
-#Notas Importantes
+# Notas Importantes
 Si encuentras problemas al descargar las librerías, asegúrate de que el entorno virtual esté activado. Puedes activarlo utilizando el comando source venv/bin/activate en Linux/Mac o venv\Scripts\activate en Windows.
 
 En la carpeta dist del proyecto, encontrarás ejecutables para Windows (tu-proyecto.exe), Linux (tu-proyecto), y macOS (tu-proyecto). Utiliza el ejecutable correspondiente según tu sistema operativo para ejecutar el programa.
