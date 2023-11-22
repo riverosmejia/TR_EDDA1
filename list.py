@@ -1,10 +1,22 @@
+import os
+import platform
 import psycopg2
 
 from grafo import GrafoDirigido
-
 from persona import persona
-
 from mensaje import relacion
+
+def limpiar_pantalla():
+    sistema_operativo = platform.system()
+    
+    if sistema_operativo == 'Windows':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+def pausar_pantalla():
+    input('Presiona Enter para continuar...')
+
 
 db_params = {
     "host": "bubble.db.elephantsql.com",
@@ -26,14 +38,7 @@ if __name__ == "__main__":
         cursor.execute("SELECT * FROM tablaproyecto")
         rows = cursor.fetchall()
 
-        cont=0
-
-        # Mostrar resultados
         for row in rows:
-
-            print(cont)
-
-            cont=cont+1
 
             if not grafo.encontrar_persona(row[0]):
 
@@ -49,9 +54,36 @@ if __name__ == "__main__":
 
             grafo.agregar_arista(row[0],row[3],row[2],row[5])
 
-        for cacatua in grafo.relaciones:
+        cerrar=False
 
-            cacatua.obtener_info()
+        while cerrar is not True:
+
+            limpiar_pantalla()
+
+            resp = int(input('1.Mostrar personas\n2.mostrar mensajes\n3.mostrar Relaciones\nR/='))
+
+            print('<---------------------->')
+
+            if resp==1:
+
+                grafo.mostrar_personas()
+
+            elif resp==2:
+
+                cont1=0
+
+                for row1 in rows:
+
+                    cont1+=1
+                    print(f'{cont1}. mensaje: {row1[2]} ---------------> hora: {row1[5]}')
+
+            elif resp==3:
+
+                for cacatua in grafo.relaciones:
+
+                    cacatua.obtener_info()
+
+            pausar_pantalla()
 
     except Exception as e:
         print(f"Error: {e}")

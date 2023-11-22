@@ -28,6 +28,16 @@ class GrafoDirigido:
         for arista in self.relaciones:
             print(f"{arista}")
 
+    def mostrar_personas(self):
+        cont1=0
+        for personas in self.personas:
+            cont1+=1
+            print(f'{cont1}. {personas.nombre}')
+
+    def mostrar_relaciones(self):
+        for mensajes in self.relaciones:
+            print(mensajes)
+
     def encontrar_camino(self, inicio_id, destino_id, camino_actual=None):
         if camino_actual is None:
             camino_actual = []  # lista
@@ -48,7 +58,7 @@ class GrafoDirigido:
 
         for per in self.personas:
 
-            if per == persona:
+            if per.nombre == persona:
 
                 return True
 
