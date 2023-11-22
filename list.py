@@ -2,7 +2,7 @@ import os
 import platform
 import psycopg2
 
-from grafo import GrafoDirigido
+from grafo import Grafo
 from persona import persona
 from mensaje import relacion
 
@@ -28,7 +28,7 @@ db_params = {
 
 if __name__ == "__main__":
 
-    grafo = GrafoDirigido()
+    grafo = Grafo()
 
     try:
         connection = psycopg2.connect(**db_params)
@@ -58,9 +58,11 @@ if __name__ == "__main__":
 
         while cerrar is not True:
 
+            pausar_pantalla()
+
             limpiar_pantalla()
 
-            resp = int(input('1.Mostrar personas\n2.mostrar mensajes\n3.mostrar Relaciones\nR/='))
+            resp = int(input('1.Mostrar personas\n2.mostrar mensajes\n3.mostrar Relaciones\n4.encontrar mejor amigo\n5.cerrar programa\nR/='))
 
             print('<---------------------->')
 
@@ -85,9 +87,18 @@ if __name__ == "__main__":
 
                     cont1+=1
 
-                    print(f'{cont1}. ')
+                    print(f'{cont1}.')
 
                     cacatua.obtener_info()
+
+            elif resp == 4:
+            
+                persona_id = int(input("Ingrese el teléfono de la persona para ver su mayor relación: "))
+                grafo.persona_con_mas_relacion(persona_id)
+
+            elif resp == 5:
+
+                cerrar=True
 
             print('<---------------------->')
 
