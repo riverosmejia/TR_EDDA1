@@ -1,101 +1,67 @@
+Este repositorio contiene un proyecto que te permite acceder a datos desde una base de datos PostgreSQL en Elephant SQL sin la necesidad de utilizar MySQL. A continuación, se detallan los pasos para configurar el entorno virtual, instalar las librerías necesarias (`psycopg2` y `platform`), y extraer datos de la base de datos.
 
+## Instalación y Configuración del Entorno Virtual
 
-<--Guía completa que incluye todos los pasos desde la instalación de las dependencias hasta la carga de datos en ElephantSQL, para los sistemas operativos Linux, Windows y macOS-->
+1. Clona este repositorio en tu máquina local:
 
-# Paso 1: Instalar psycopg2:
+   ```bash
+   git clone https://github.com/tu-usuario/tu-proyecto.git
+   cd tu-proyecto
+Crea un entorno virtual (asegúrate de tener virtualenv instalado):
 
-    pip install psycopg2-binary
+bash
+Copy code
+virtualenv venv
+Activa el entorno virtual:
 
-# Paso 2: Descargar e Instalar pgloader (Solo si aún no lo tienes):
-    
-Linux:
-    
-    sudo apt-get install pgloader
+En Windows:
+bash
+Copy code
+venv\Scripts\activate
+En Linux/Mac:
+bash
+Copy code
+source venv/bin/activate
+Instala las dependencias del proyecto:
 
-Windows:
-    
-    Descarga el instalador desde la página de descargas de pgloader y sigue las instrucciones.
+bash
+Copy code
+pip install -r requirements.txt
+Nota: Si encuentras problemas al intentar instalar las librerías, asegúrate de que el entorno virtual esté activado.
 
-macOS:
+Descargar Librerías
+Para descargar las librerías necesarias, ejecuta el siguiente comando:
 
-    brew install pgloader
-    
-    
-# Paso 3: Conexión y Manipulación de la Base de Datos desde Python:
+bash
+Copy code
+pip install psycopg2 platform
+Nota: Si encuentras problemas al descargar las librerías, asegúrate de que el entorno virtual esté activado.
 
-    import psycopg2
+Configuración de la Base de Datos
+En el archivo config.py, asegúrate de proporcionar la información correcta de tu base de datos PostgreSQL en Elephant SQL.
 
-    db_params = {
-        "host": "bubble.db.elephantsql.com",
-        "user": "tu_usuario",
-        "password": "tu_contraseña",  # Usa tu clave API en lugar de la contraseña
-        "port": 5432,
-        "database": "tu_base_de_datos",
-    }
+python
+Copy code
+# config.py
 
-    try:
-        connection = psycopg2.connect(**db_params)
-        cursor = connection.cursor()
+DATABASE_CONFIG = {
+    'host': 'tu-host',
+    'database': 'tu-base-de-datos',
+    'user': 'tu-usuario',
+    'password': 'tu-contraseña',
+    'port': 'tu-puerto',
+}
+Uso del Script para Extraer Datos
+Ejecuta el script extract_data.py para extraer datos de la base de datos:
 
-        # Ejemplo: Obtener todas las filas de la tabla
-        cursor.execute("SELECT * FROM tablaproyecto")
-        rows = cursor.fetchall()
+bash
+Copy code
+python extract_data.py
+Esto iniciará el proceso de extracción y mostrará los datos obtenidos.
 
-        # Mostrar resultados
-        for row in rows:
-            print(row)
+Notas Importantes
+Si encuentras problemas al descargar las librerías, asegúrate de que el entorno virtual esté activado. Puedes activarlo utilizando el comando source venv/bin/activate en Linux/Mac o venv\Scripts\activate en Windows.
 
-    except Exception as e:
-        print(f"Error: {e}")
+En la carpeta dist del proyecto, encontrarás ejecutables para Windows (tu-proyecto.exe), Linux (tu-proyecto), y macOS (tu-proyecto). Utiliza el ejecutable correspondiente según tu sistema operativo para ejecutar el programa.
 
-    finally:
-        # Cerrar la conexión
-        try:
-            if connection:
-                cursor.close()
-                connection.close()
-                print("Conexión cerrada.")
-        except NameError:
-            # En caso de que haya un error antes de definir 'connection'
-            pass
-
-<--NOTA: SI USTED NO HA PODIDO CUMPLIR EL PASO 1 CUMPLIR CON LO SIGUIENTE PARA QUE LE FUNCIONE EL PROYECTO-->
-
-    para activar un entorno virtual, puedes proporcionar comandos simples para los usuarios. Aquí tienes un ejemplo para Linux, Windows y macOS:
-
-        Para Linux y macOS:
-        bash
-        Copy code
-        # Crear un entorno virtual
-        python3 -m venv nombre_del_entorno
-
-        # Activar el entorno virtual
-        source nombre_del_entorno/bin/activate
-
-        # Desactivar el entorno virtual
-        deactivate
-        Para Windows:
-        bash
-        Copy code
-        # Crear un entorno virtual
-        python -m venv nombre_del_entorno
-
-        # Activar el entorno virtual
-        nombre_del_entorno\Scripts\activate
-
-        # Desactivar el entorno virtual
-        deactivate
-
-
-# Paso 4: Utilizar pgloader para Cargar Datos en ElephantSQL:
-
-    pgloader mysql://usuario:contraseña@localhost/baseproyecto \
-
-         postgresql://tu_usuario:tu_contraseña@bubble.db.elephantsql.com:5432/tu_base_de_datos \
-         -S nombre_del_archivo.sql
-
-# Paso 5: Verificación en ElephantSQL:
-
-Accede a tu cuenta en ElephantSQL y verifica que la base de datos y los datos se hayan cargado correctamente.
-
-Recuerda reemplazar "tu_usuario", "tu_contraseña" y "tu_base_de_datos" con las credenciales correctas de tu instancia ElephantSQL.
+¡Listo! Ahora deberías poder acceder y extraer datos de tu base de datos PostgreSQL en Elephant SQL sin necesidad de MySQL. ¡Disfruta del proyecto!
