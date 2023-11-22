@@ -79,9 +79,17 @@ if __name__ == "__main__":
 
             elif resp==3:
 
+                cont1=0
+
                 for cacatua in grafo.relaciones:
 
+                    cont1+=1
+
+                    print(f'{cont1}. ')
+
                     cacatua.obtener_info()
+
+            print('<---------------------->')
 
             pausar_pantalla()
 
